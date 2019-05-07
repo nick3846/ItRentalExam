@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>IT-Rental | @ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a asp-page="Index">Forside</a>
+            <a asp-page="Index">Lånere</a>
+            <a asp-page="Equipments">Udstyr</a>
+        </nav>
+    </header>
+    <div class="wrapper">
+        @RenderBody()
+    </div>
+</body>
+</html>

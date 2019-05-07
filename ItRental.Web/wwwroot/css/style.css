@@ -1,0 +1,109 @@
+﻿html {
+    font-size: 16px;
+}
+body {
+    margin: 0;
+    background-color: white;
+    width: 100%;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+a:visited {
+    color:inherit;
+}
+
+header nav {
+    overflow: hidden;
+    background-color: #222;
+}
+
+    header nav a, header nav a:visited {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 2vh 4vw;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    header nav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+/*Forms design*/
+.form {
+    width: 50%;
+    margin: 3rem 0;
+    background: #ccc;
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+}
+label{
+    font-size: 1.2rem;
+}
+input[type=text], input[type=number] {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    margin: 0.5rem 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    width: 100%;
+    font-size: 1rem;
+    background-color: #555;
+    color: white;
+    padding: 0.8rem 0.8rem;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #222;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 70vw;
+}
+
+/*Table design*/
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 1.2rem;
+}
+
+th {
+    font-size: 1.3rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: darkgray;
+    color: white;
+}
