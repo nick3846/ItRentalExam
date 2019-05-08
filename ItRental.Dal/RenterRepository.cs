@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace ItRental.Dal
@@ -10,7 +11,12 @@ namespace ItRental.Dal
     {
         public List<Renter> GetRenters()
         {
-            return HandleData(ExecuteQuery("SELECT * FROM Renter"));
+            return HandleData(ExecuteQuery("SELECT * FROM Renters"));
+        }
+
+        public int Insert(Renter renter)
+        {
+            return ExecuteNonQuery($"INSERT INTO Renters VALUES('{renter.Name}', {(int)renter.RenterLevel})");
         }
 
         private List<Renter> HandleData(DataTable dataTable)
@@ -25,12 +31,17 @@ namespace ItRental.Dal
                 {
                     Id = (int)row["RenterId"],
                     Name = (string)row["Name"],
-                    RenterLevel = (RenterLevel)row["RenterLevel"],
+                    RenterLevel = (RenterLevel)row["RenterLevel"]
                 };
 
                 renters.Add(renter);
             }
             return renters;
+        }
+        public Renter GetById(int id)
+        {
+            DataTable renterTable = ExecuteQuery($"SELECT * FROM Renters WHERE RenterId = {id}");
+            return HandleData(renterTable).FirstOrDefault();
         }
     }
 }

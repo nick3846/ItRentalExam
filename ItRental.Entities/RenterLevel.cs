@@ -8,6 +8,6 @@ namespace ItRental.Entities
     {
         Starter = 3,
         Normal = 5,
-        RopRenter = 8
+        TopRenter = 8
     }
 }

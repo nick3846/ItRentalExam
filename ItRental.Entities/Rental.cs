@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ItRental.Entities
@@ -10,6 +11,7 @@ namespace ItRental.Entities
         public DateTime RentalTime { get; set; }
         public DateTime ReturnTime { get; set; }
         public Equipment Equipment { get; set; }
+        [Display(Name="Antal")]
         public int Units { get; set; }
         public Renter Renter { get; set; }
 

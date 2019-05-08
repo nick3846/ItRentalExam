@@ -15,15 +15,20 @@ namespace ItRental.Web.Pages
         [BindProperty]
         public Equipment Equipment { get; set; }
         public List<Equipment> Equipments { get; set; } = new List<Equipment>();
+        EquipmentRepository EquipmentRepository { get; set; } = new EquipmentRepository();
 
         public EquipmentsModel()
         {
-            EquipmentRepository equipmentRepository = new EquipmentRepository();
-            Equipments = equipmentRepository.GetEquipments();
+            Equipments = EquipmentRepository.GetEquipments();
         }
         public void OnGet()
         {
             
+        }
+        public void OnPostInsert()
+        {
+            EquipmentRepository.Insert(Equipment);
+            Equipments.Add(Equipment);
         }
     }
 }

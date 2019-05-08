@@ -15,6 +15,9 @@ namespace ItRental.Dal
 
         private List<Rental> HandleData(DataTable dataTable)
         {
+            EquipmentRepository equipmentRepository = new EquipmentRepository();
+            RenterRepository renterRepository = new RenterRepository();
+
             List<Rental> rentals = new List<Rental>();
             if (dataTable is null)
                 return rentals;
@@ -25,13 +28,18 @@ namespace ItRental.Dal
                     Id = (int)row["RentalId"],
                     RentalTime = (DateTime)row["RentalTime"],
                     ReturnTime = (DateTime)row["ReturnTime"],
-                    Equipment = (Equipment)row["EquipmentId"],
+                    Equipment = equipmentRepository.GetById((int)row["EquipmentId"]),
                     Units = (int)row["Units"],
-                    Renter = (Renter)row["RenterId"]
+                    Renter = renterRepository.GetById((int)row["RenterId"])
                 };
                 rentals.Add(rental);
             }
             return rentals;
+        }
+
+        public List<Rental> GetByRenterId(int id)
+        {
+            return HandleData(ExecuteQuery($"SELECT * FROM Rentals WHERE RenterId = {id}"));
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿@page
+@model ItRental.Web.Pages.RentersModel
+@{
+    ViewData["Title"] = "Lånere";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Lånere</h2>
+
+<table>
+    <tr>
+        <th>Navn</th>
+        <th>Rettigheder</th>
+    </tr>
+    <tbody>
+        @{
+            foreach (Renter renter in Model.Renters)
+            {
+                    <tr>
+                        <td><a href="RenterDetails/@renter.Id" >@renter.Name</a></td>
+                        <td>@renter.RenterLevel</td>
+                    </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<h2>Opret ny låner</h2>
+<div class="form">
+    <form method="post" asp-page="Renters" asp-page-handler="Insert">
+        @Html.AntiForgeryToken()
+        <label asp-for="Renter.Name"></label>
+        <input asp-for="Renter.Name" placeholder="Skriv navn på låner" />
+        <label asp-for="Renter.RenterLevel"></label>
+        <select asp-for="Renter.RenterLevel">
+            @foreach (RenterLevel renterLevel in Enum.GetValues(typeof(RenterLevel)))
+            {
+                <option value="@renterLevel">@renterLevel</option>
+            }
+        </select>
+
+        <button type="submit">Opret</button>
+    </form>
+</div>

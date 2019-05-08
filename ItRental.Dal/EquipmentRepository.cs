@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace ItRental.Dal
 {
@@ -41,6 +42,17 @@ namespace ItRental.Dal
                 equipments.Add(equipment);
             }
             return equipments;
+        }
+
+        public Equipment GetById(int id)
+        {
+            DataTable equipmentTable = ExecuteQuery($"SELECT * FROM Equipments WHERE EquipmentId = {id}");
+            return HandleData(equipmentTable).FirstOrDefault();
+        }
+
+        public int Insert(Equipment equipment)
+        {
+            return ExecuteNonQuery($"INSERT INTO Equipments VALUES('{equipment.Name}','{equipment.Category}', {equipment.Units})");
         }
     }
 }
