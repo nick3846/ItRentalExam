@@ -13,6 +13,11 @@ namespace ItRental.Dal
             return HandleData(ExecuteQuery("SELECT * FROM Rentals"));
         }
 
+        public int Insert(Rental rental)
+        {
+            return ExecuteNonQuery($"INSERT INTO Rentals VALUES('{DateTime.Now.ToString("yyyy-MM-dd")}', '{rental.ReturnTime.ToString("yyyy-MM-dd")}', '{rental.Equipment.Id}', '{rental.Units}', '{rental.Renter.Id}')");
+        }
+
         private List<Rental> HandleData(DataTable dataTable)
         {
             EquipmentRepository equipmentRepository = new EquipmentRepository();

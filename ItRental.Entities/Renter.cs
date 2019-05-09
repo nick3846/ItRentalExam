@@ -26,9 +26,5 @@ namespace ItRental.Entities
 
             return null;
         }
-        public bool GetOverdueRental()
-        {
-            return false;
-        }
     }
 }

@@ -108,6 +108,10 @@ th {
     color: white;
 }
 
-.rentalLate{
+.rentalOverdue{
     color: red;
+}
+
+#hide{
+    display: none;
 }

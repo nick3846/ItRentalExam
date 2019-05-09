@@ -29,20 +29,17 @@ namespace ItRental.Web.Pages
             Renter = RenterRepository.GetById(id);
             Rentals = RentalRepository.GetByRenterId(id);
             Renter.Rentals = Rentals;
-            if (Rental.IsRentalOverdue())
-            {
-                ReturnLate = "Noget";
-            }
         }
         public void OnPostInsert()
         {
-
+            RentalRepository.Insert(Rental);
+            Rentals = RentalRepository.GetByRenterId(Rental.Renter.Id);
         }
         public string IsRentalOverdue(DateTime date)
         {
-            if (date > DateTime.Now)
+            if (date < DateTime.Now)
             {
-                return "rentalLate";
+                return "rentalOverdue";
             }
             else
                 return "";
