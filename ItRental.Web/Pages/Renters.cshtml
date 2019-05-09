@@ -22,14 +22,12 @@
         <th>Rettigheder</th>
     </tr>
     <tbody>
-        @{
-            foreach (Renter renter in Model.Renters)
-            {
-                <tr>
-                    <td><a href="RenterDetails/@renter.Id">@renter.Name</a></td>
-                    <td>@renter.RenterLevel</td>
-                </tr>
-            }
+        @foreach (Renter renter in Model.Renters)
+        {
+            <tr>
+                <td><a href="RenterDetails/@renter.Id">@renter.Name</a></td>
+                <td>@renter.RenterLevel</td>
+            </tr>
         }
     </tbody>
 </table>

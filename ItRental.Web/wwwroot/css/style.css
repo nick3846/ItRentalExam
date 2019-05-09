@@ -107,3 +107,7 @@ th {
     background-color: darkgray;
     color: white;
 }
+
+.rentalLate{
+    color: red;
+}

@@ -26,7 +26,7 @@
                     <td>@rental.Equipment.Category</td>
                     <td>@rental.Units</td>
                     <td>@rental.RentalTime.ToString("dd-MM-yyyy")</td>
-                    <td>@rental.ReturnTime.ToString("dd-MM-yyyy")</td>
+                    <td class="@Model.IsRentalOverdue(rental.ReturnTime)">@rental.ReturnTime.ToString("dd-MM-yyyy")</td>
                     <td>
                         <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <a href=""><i class="fa fa-trash" aria-hidden="true"></i></a>

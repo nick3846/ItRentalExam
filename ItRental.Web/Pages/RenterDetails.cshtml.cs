@@ -23,16 +23,29 @@ namespace ItRental.Web.Pages
         public Renter Renter { get; set; } = new Renter();
         public List<Rental> Rentals { get; set; } = new List<Rental>();
         public List<Equipment> Equipments { get; set; } = new List<Equipment>();
+        public string ReturnLate { get; set; } = "";
         public void OnGet(int id)
         {
             Renter = RenterRepository.GetById(id);
             Rentals = RentalRepository.GetByRenterId(id);
             Renter.Rentals = Rentals;
-
+            if (Rental.IsRentalOverdue())
+            {
+                ReturnLate = "Noget";
+            }
         }
         public void OnPostInsert()
         {
 
+        }
+        public string IsRentalOverdue(DateTime date)
+        {
+            if (date > DateTime.Now)
+            {
+                return "rentalLate";
+            }
+            else
+                return "";
         }
     }
 }
