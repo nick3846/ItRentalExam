@@ -51,10 +51,10 @@
         <input id="hide" asp-for="Rental.Renter.Id" value="@Model.Renter.Id" hidden/>
 
         <label asp-for="Rental.Units"></label>
-        <input asp-for="Rental.Units"/>
+        <input asp-for="Rental.Units" value="1" min="1"/>
 
         <label asp-for="Rental.ReturnTime"></label>
-        <input asp-for="Rental.ReturnTime" type="datetime" value="@DateTime.Now.ToString("dd-MM-yyyy")"/>
+        <input asp-for="Rental.ReturnTime" type="date" value="@DateTime.Now" required/>
 
         <button type="submit">Opret</button>
     </form>

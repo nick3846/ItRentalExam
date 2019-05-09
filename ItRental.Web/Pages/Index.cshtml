@@ -18,12 +18,26 @@
         @{
             foreach (OpeningHours openingHour in Model.OpeningHoursInfo.OpeningHours)
             {
-                <tr>
-                    <td>@openingHour.Day</td>
-                    <td>@openingHour.OpeningHour</td>
-                    <td>@openingHour.ClosingHour</td>
+        <tr>
+            <td>@openingHour.Day</td>
+            @if (openingHour.OpeningHour is null)
+            {
+                <td>Lukket</td>
+            }
+            else
+            {
+                <td>@openingHour.OpeningHour</td>
+            }
+            @if (openingHour.ClosingHour is null)
+            {
+                <td>Lukket</td>
+            }
+            else
+            {
+            <td>@openingHour.ClosingHour</td>
+            }
 
-                </tr>
+        </tr>
             }
         }
     </tbody>

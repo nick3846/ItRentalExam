@@ -32,5 +32,6 @@ namespace ItRental.EntitiesTest
             //Assert
             Assert.False(rental.IsRentalOverdue());
         }
+        
     }
 }

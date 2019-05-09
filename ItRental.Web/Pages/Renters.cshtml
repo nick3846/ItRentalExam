@@ -37,7 +37,7 @@
     <form method="post" asp-page="Renters" asp-page-handler="Insert">
         @Html.AntiForgeryToken()
         <label asp-for="Renter.Name"></label>
-        <input asp-for="Renter.Name" placeholder="Skriv navn på låner" />
+        <input asp-for="Renter.Name" placeholder="Skriv navn på låner" required/>
         <label asp-for="Renter.RenterLevel"></label>
         <select asp-for="Renter.RenterLevel">
             @foreach (RenterLevel renterLevel in Enum.GetValues(typeof(RenterLevel)))
