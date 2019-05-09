@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using ItRental.Dal;
@@ -19,6 +20,9 @@ namespace ItRental.Web.Pages
         public Renter Renter { get; set; } = new Renter();
         public List<Renter> Renters { get; set; } = new List<Renter>();
         RenterRepository RenterRepository { get; set; } = new RenterRepository();
+        [Display(Name ="Søg efter låner")]
+        [BindProperty]
+        public string SearchInput { get; set; }
 
         public void OnGet()
         {
@@ -28,6 +32,13 @@ namespace ItRental.Web.Pages
         {
             RenterRepository.Insert(Renter);
             Renters.Add(Renter);
+        }
+        public void OnPostSearchForRenters()
+        {
+            if (SearchInput != null)
+            {
+                Renters = RenterRepository.GetAllWithName(SearchInput);
+            }
         }
     }
 }

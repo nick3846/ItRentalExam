@@ -27,6 +27,7 @@ namespace ItRental.Web.Pages
         {
             Renter = RenterRepository.GetById(id);
             Rentals = RentalRepository.GetByRenterId(id);
+            Renter.Rentals = Rentals;
 
         }
         public void OnPostInsert()

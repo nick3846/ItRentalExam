@@ -38,6 +38,14 @@ namespace ItRental.Dal
             }
             return renters;
         }
+
+        public List<Renter> GetAllWithName(string searchInput)
+        {
+            string sql = $"SELECT * FROM Renters WHERE Name LIKE '%{searchInput}%'";
+            DataTable rentersTable = ExecuteQuery(sql);
+            return HandleData(rentersTable);
+        }
+
         public Renter GetById(int id)
         {
             DataTable renterTable = ExecuteQuery($"SELECT * FROM Renters WHERE RenterId = {id}");

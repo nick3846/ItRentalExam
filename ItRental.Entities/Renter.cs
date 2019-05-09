@@ -12,10 +12,12 @@ namespace ItRental.Entities
         public string Name { get; set; }
         [Display(Name="Rettigheder")]
         public RenterLevel RenterLevel { get; set; }
-        public List<Renter> Rentals { get; set; }
-        public int NumberOfRentals { get; }
-        
-
+        public List<Rental> Rentals { get; set; } = new List<Rental>();
+        public int NumberOfRentals { get
+            {
+                return Rentals.Count;
+            }
+        }
 
 
         public Renter NextRentalDue()
